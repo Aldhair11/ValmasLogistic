@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-surface font-sans text-on-surface antialiased;
+  }
+}
+
+@layer components {
+  .bento-cell {
+    @apply border-2 border-on-surface bg-surface p-6 shadow-brutal;
+  }
+
+  .bento-cell-highlight {
+    @apply bento-cell border-primary bg-surface-container-low;
+  }
+
+  .brutalist-input {
+    @apply w-full border-2 border-on-surface bg-surface px-4 py-3 text-sm font-semibold text-on-surface shadow-brutal placeholder:font-medium placeholder:text-on-surface-muted focus:outline-none focus:ring-0 disabled:cursor-not-allowed disabled:opacity-60;
+  }
+
+  .brutalist-label {
+    @apply mb-2 block text-xs font-bold uppercase tracking-widest text-on-surface;
+  }
+
+  .brutalist-button-primary {
+    @apply inline-flex items-center justify-center gap-2 border-2 border-on-surface bg-primary px-4 py-3 text-sm font-bold uppercase tracking-wide text-on-primary shadow-brutal transition-[transform,box-shadow] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-brutal-sm focus:outline-none active:translate-x-1 active:translate-y-1 active:shadow-none disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-x-0 disabled:hover:translate-y-0 disabled:hover:shadow-brutal;
+  }
+
+  .brutalist-button-secondary {
+    @apply inline-flex items-center justify-center gap-2 border-2 border-on-surface bg-surface px-4 py-3 text-sm font-bold uppercase tracking-wide text-on-surface shadow-brutal transition-[transform,box-shadow] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-brutal-sm focus:outline-none active:translate-x-1 active:translate-y-1 active:shadow-none disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-x-0 disabled:hover:translate-y-0 disabled:hover:shadow-brutal;
+  }
+
+  .brutalist-nav-link {
+    @apply border-2 border-transparent px-3 py-2 text-sm font-bold uppercase tracking-wide text-on-surface transition hover:border-on-surface;
+  }
+
+  .brutalist-nav-button {
+    @apply brutalist-button-primary px-3.5 py-2 text-xs;
+  }
+
+  .brutalist-sidebar-link {
+    @apply flex w-full items-center gap-2 border-2 border-transparent px-3 py-2.5 text-xs font-bold uppercase tracking-wide text-on-surface transition-[transform,background-color,border-color] hover:translate-x-0.5 hover:border-on-surface hover:bg-surface;
+  }
+
+  .brutalist-sidebar-link-active {
+    @apply border-on-surface bg-primary text-on-primary shadow-brutal-sm hover:translate-x-0 hover:bg-primary;
+  }
+
+  .surface-container-low {
+    @apply bg-surface-container-low;
+  }
+}

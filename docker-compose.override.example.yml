@@ -1,0 +1,9 @@
+# Desarrollo local con docker compose (puertos y secretos personalizados).
+# Copia a docker-compose.override.yml — ese archivo está en .gitignore.
+#
+#   cp docker-compose.override.example.yml docker-compose.override.yml
+
+services:
+  api:
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development

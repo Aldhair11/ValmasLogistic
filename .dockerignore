@@ -1,0 +1,53 @@
+# Git
+.git/
+.gitignore
+.gitattributes
+
+# Environment and secrets (never bake into images)
+.env
+.env.*
+!.env.example
+**/.env
+**/.env.*
+!**/.env.example
+**/appsettings.Development.json
+**/appsettings.*.local.json
+**/secrets.json
+
+# .NET build outputs
+**/bin/
+**/obj/
+**/*.user
+**/*.suo
+**/.vs/
+
+# Frontend
+logistics-frontend/node_modules/
+logistics-frontend/dist/
+logistics-frontend/.vite/
+
+# Local databases
+**/*.db
+**/*.db-shm
+**/*.db-wal
+
+# IDE / editor
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+
+# Docker metadata (not needed inside images)
+docker-compose*.yml
+Dockerfile*
+.dockerignore
+
+# Docs / tooling not required at runtime
+tools/
+**/TestResults/
+**/coverage/
+agent-transcripts/
+
+# Wwwroot placeholder (SPA served by nginx container)
+LogisticsSystem.Api/wwwroot/

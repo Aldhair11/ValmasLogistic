@@ -1,0 +1,47 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: LogisticsSystem.Api/Dockerfile
+    container_name: logistics-api
+    ports:
+      - "${API_PORT:-5253}:8080"
+    environment:
+      ASPNETCORE_ENVIRONMENT: ${ASPNETCORE_ENVIRONMENT:-Production}
+      ConnectionStrings__DefaultConnection: ${CONNECTION_STRING:-Data Source=/app/data/logistics.db}
+      Jwt__Key: ${JWT_KEY:?JWT_KEY is required — copy .env.example to .env and set a secret}
+      Jwt__Issuer: ${JWT_ISSUER:-LogisticsApi}
+      Jwt__Audience: ${JWT_AUDIENCE:-LogisticsFrontend}
+    volumes:
+      - logistics-data:/app/data
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://127.0.0.1:8080/health > /dev/null 2>&1 || exit 1"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 20s
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./logistics-frontend
+      dockerfile: Dockerfile
+      args:
+        VITE_API_BASE_URL: ${VITE_API_BASE_URL:-http://localhost:5253}
+    container_name: logistics-frontend
+    ports:
+      - "${FRONTEND_PORT:-5173}:80"
+    depends_on:
+      api:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://127.0.0.1:80/ > /dev/null 2>&1 || exit 1"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    restart: unless-stopped
+
+volumes:
+  logistics-data:
+    name: logistics-data
