@@ -1,4 +1,4 @@
-﻿import {
+import {
   useCallback,
   useDeferredValue,
   useEffect,
@@ -231,7 +231,7 @@ function Users() {
             </div>
             <div>
               <label htmlFor="user-password" className={labelClass}>
-                ContraseÃ±a
+                Contraseña
               </label>
               <input
                 id="user-password"
@@ -336,7 +336,7 @@ function Users() {
           <div className={emptyBoxClass}>
             <p>
               {isSearching
-                ? 'No hay usuarios que coincidan con la bÃºsqueda.'
+                ? 'No hay usuarios que coincidan con la búsqueda.'
                 : 'No hay usuarios registrados.'}
             </p>
           </div>
@@ -452,8 +452,8 @@ function Users() {
         title={statusActivating ? 'Reactivar usuario' : 'Desactivar usuario'}
         description={
           statusActivating
-            ? `Â¿Deseas reactivar a ${statusUser?.username ?? 'este usuario'}? PodrÃ¡ volver a iniciar sesiÃ³n.`
-            : `Â¿Deseas desactivar a ${statusUser?.username ?? 'este usuario'}? No podrÃ¡ iniciar sesiÃ³n hasta que lo reactives.`
+            ? `¿Deseas reactivar a ${statusUser?.username ?? 'este usuario'}? Podrá volver a iniciar sesión.`
+            : `¿Deseas desactivar a ${statusUser?.username ?? 'este usuario'}? No podrá iniciar sesión hasta que lo reactives.`
         }
         confirmLabel={statusActivating ? 'Reactivar' : 'Desactivar'}
         onOpenChange={(open) => {

@@ -1,4 +1,4 @@
-﻿import { useEffect, useState, type FormEvent } from 'react';
+import { useEffect, useState, type FormEvent } from 'react';
 import * as Dialog from '@radix-ui/react-dialog';
 import { Pencil, X } from 'lucide-react';
 import { CustomerService } from '../services/masters';
@@ -127,7 +127,7 @@ function CustomerEditModal({
               </div>
               <div>
                 <label htmlFor="edit-customer-email" className="brutalist-label">
-                  Correo electr├│nico
+                  Correo electrónico
                 </label>
                 <input
                   id="edit-customer-email"
@@ -141,7 +141,7 @@ function CustomerEditModal({
               </div>
               <div>
                 <label htmlFor="edit-customer-phone" className="brutalist-label">
-                  Tel├®fono
+                  Teléfono
                 </label>
                 <input
                   id="edit-customer-phone"

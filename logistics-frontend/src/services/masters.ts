@@ -1,4 +1,4 @@
-﻿import { apiClient } from './api';
+import { apiClient } from './api';
 import { notifyError, notifySuccess } from '../lib/notify';
 import type { PagedResult } from '../types';
 import type {
@@ -60,7 +60,7 @@ export const CustomerService = {
       const response = await apiClient.post<CustomerDto>('/api/customers', data);
       notifySuccess(
         'Cliente registrado',
-        `${response.data.fullName} fue agregado al cat├ílogo.`,
+        `${response.data.fullName} fue agregado al catálogo.`,
       );
       return response.data;
     } catch (error) {
@@ -96,7 +96,7 @@ export const CustomerService = {
         isActive ? 'Cliente reactivado' : 'Cliente desactivado',
         isActive
           ? `${response.data.fullName} vuelve a estar activo.`
-          : `${response.data.fullName} fue desactivado del cat├ílogo.`,
+          : `${response.data.fullName} fue desactivado del catálogo.`,
       );
       return response.data;
     } catch (error) {
@@ -153,12 +153,12 @@ export const VehicleService = {
     try {
       const response = await apiClient.post<VehicleDto>('/api/vehicles', data);
       notifySuccess(
-        'Veh├¡culo registrado',
+        'Vehículo registrado',
         `Placa ${response.data.licensePlate} agregada a la flota.`,
       );
       return response.data;
     } catch (error) {
-      notifyError(error, 'No se pudo registrar el veh├¡culo.');
+      notifyError(error, 'No se pudo registrar el vehículo.');
       throw error;
     }
   },
@@ -167,12 +167,12 @@ export const VehicleService = {
     try {
       const response = await apiClient.put<VehicleDto>(`/api/vehicles/${id}`, data);
       notifySuccess(
-        'Veh├¡culo actualizado',
+        'Vehículo actualizado',
         `Placa ${response.data.licensePlate} fue modificada correctamente.`,
       );
       return response.data;
     } catch (error) {
-      notifyError(error, 'No se pudo actualizar el veh├¡culo.');
+      notifyError(error, 'No se pudo actualizar el vehículo.');
       throw error;
     }
   },
@@ -184,18 +184,18 @@ export const VehicleService = {
         { isActive },
       );
       notifySuccess(
-        isActive ? 'Veh├¡culo reactivado' : 'Veh├¡culo desactivado',
+        isActive ? 'Vehículo reactivado' : 'Vehículo desactivado',
         isActive
           ? `Placa ${response.data.licensePlate} vuelve a estar activa.`
-          : `Placa ${response.data.licensePlate} fue desactivada del cat├ílogo.`,
+          : `Placa ${response.data.licensePlate} fue desactivada del catálogo.`,
       );
       return response.data;
     } catch (error) {
       notifyError(
         error,
         isActive
-          ? 'No se pudo reactivar el veh├¡culo.'
-          : 'No se pudo desactivar el veh├¡culo.',
+          ? 'No se pudo reactivar el vehículo.'
+          : 'No se pudo desactivar el vehículo.',
       );
       throw error;
     }
@@ -264,7 +264,7 @@ export const CourierService = {
         isActive ? 'Repartidor reactivado' : 'Repartidor desactivado',
         isActive
           ? `${response.data.fullName} vuelve a estar activo.`
-          : `${response.data.fullName} fue desactivado del cat├ílogo.`,
+          : `${response.data.fullName} fue desactivado del catálogo.`,
       );
       return response.data;
     } catch (error) {
@@ -347,7 +347,7 @@ export const BranchService = {
         isActive ? 'Sucursal reactivada' : 'Sucursal desactivada',
         isActive
           ? `${response.data.name} vuelve a estar activa.`
-          : `${response.data.name} fue desactivada del cat├ílogo.`,
+          : `${response.data.name} fue desactivada del catálogo.`,
       );
       return response.data;
     } catch (error) {

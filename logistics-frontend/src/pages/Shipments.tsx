@@ -1,4 +1,4 @@
-﻿import {
+import {
   useCallback,
   useDeferredValue,
   useEffect,
@@ -41,15 +41,15 @@ type PaidFilter = 'ALL' | 'PAID' | 'UNPAID';
 const STATUS_OPTIONS: { value: StatusFilter; label: string }[] = [
   { value: 'ALL', label: 'Todos los estados' },
   { value: 'IN_COURSE', label: 'En curso' },
-  { value: 'PendingValidation', label: 'Requieren validaciÃ³n' },
+  { value: 'PendingValidation', label: 'Requieren validación' },
   { value: 'Pending', label: 'Pendiente' },
-  { value: 'InTransit', label: 'En trÃ¡nsito' },
+  { value: 'InTransit', label: 'En tránsito' },
   { value: 'Delivered', label: 'Entregado' },
   { value: 'Cancelled', label: 'Cancelado' },
 ];
 
 const PAYMENT_OPTIONS: { value: PaymentFilter; label: string }[] = [
-  { value: 'ALL', label: 'Todos los mÃ©todos' },
+  { value: 'ALL', label: 'Todos los métodos' },
   { value: 'PrePaid', label: PAYMENT_METHOD_LABEL.PrePaid },
   { value: 'CashOnDelivery', label: PAYMENT_METHOD_LABEL.CashOnDelivery },
 ];
@@ -121,7 +121,7 @@ function Shipments() {
       setPaged(data);
     } catch (err) {
       setPaged(null);
-      notifyError(err, 'No se pudieron cargar los envÃ­os.');
+      notifyError(err, 'No se pudieron cargar los envíos.');
     } finally {
       setFetching(false);
       setInitialLoading(false);
@@ -149,16 +149,16 @@ function Shipments() {
       <header>
         <div className="flex items-center gap-2">
           <Package className="h-7 w-7 text-primary" aria-hidden="true" />
-          <h1 className={pageTitleClass}>EnvÃ­os</h1>
+          <h1 className={pageTitleClass}>Envíos</h1>
         </div>
         <p className={pageSubtitleClass}>
-          Consulta, filtra y gestiona todos los envÃ­os del sistema.
+          Consulta, filtra y gestiona todos los envíos del sistema.
         </p>
       </header>
 
       <MasterSearchPanel
         id="shipment-search"
-        label="Buscar envÃ­o"
+        label="Buscar envío"
         value={search}
         placeholder="Tracking, cliente, ciudad o sucursal..."
         onChange={(value) => {
@@ -190,7 +190,7 @@ function Shipments() {
         </div>
         <div>
           <label htmlFor="shipment-payment-filter" className={labelClass}>
-            MÃ©todo de pago
+            Método de pago
           </label>
           <select
             id="shipment-payment-filter"
@@ -239,8 +239,8 @@ function Shipments() {
           <div className={emptyBoxClass}>
             <p>
               {isSearching || statusFilter !== 'ALL' || paymentFilter !== 'ALL' || paidFilter !== 'ALL'
-                ? 'No hay envÃ­os que coincidan con los filtros.'
-                : 'No hay envÃ­os registrados.'}
+                ? 'No hay envíos que coincidan con los filtros.'
+                : 'No hay envíos registrados.'}
             </p>
           </div>
         ) : (
@@ -254,7 +254,7 @@ function Shipments() {
                   <th className={thClass}>Tracking</th>
                   <th className={thClass}>Remitente</th>
                   <th className={thClass}>Destino</th>
-                  <th className={thClass}>MÃ©todo</th>
+                  <th className={thClass}>Método</th>
                   <th className={thClass}>Monto</th>
                   <th className={thClass}>Pago</th>
                   <th className={thClass}>Estado</th>
@@ -299,7 +299,7 @@ function Shipments() {
                       <Link
                         to={`/shipments/${shipment.id}`}
                         className="inline-flex h-9 w-9 items-center justify-center border-2 border-on-surface bg-surface shadow-brutal-sm transition hover:bg-surface-container-low"
-                        aria-label={`Ver envÃ­o ${shipment.trackingNumber}`}
+                        aria-label={`Ver envío ${shipment.trackingNumber}`}
                         title="Ver detalle"
                       >
                         <Eye className="h-4 w-4" aria-hidden="true" />

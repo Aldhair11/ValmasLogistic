@@ -1,4 +1,4 @@
-﻿import {
+import {
   useCallback,
   useDeferredValue,
   useEffect,
@@ -38,18 +38,18 @@ const emptyForm: CreateBranchRequest = {
   name: '',
   address: '',
   businessHours: '',
-  country: 'PerÃº',
+  country: 'Perú',
   department: '',
   province: '',
   district: '',
 };
 
 const formFields: { key: keyof CreateBranchRequest; label: string; span?: boolean }[] = [
-  { key: 'phone', label: 'TelÃ©fono' },
+  { key: 'phone', label: 'Teléfono' },
   { key: 'name', label: 'Nombre' },
-  { key: 'address', label: 'DirecciÃ³n', span: true },
-  { key: 'businessHours', label: 'Horario de atenciÃ³n' },
-  { key: 'country', label: 'PaÃ­s' },
+  { key: 'address', label: 'Dirección', span: true },
+  { key: 'businessHours', label: 'Horario de atención' },
+  { key: 'country', label: 'País' },
   { key: 'department', label: 'Departamento' },
   { key: 'province', label: 'Provincia' },
   { key: 'district', label: 'Distrito' },
@@ -164,7 +164,7 @@ function Branches() {
             <h1 className={pageTitleClass}>Sucursales</h1>
           </div>
           <p className={pageSubtitleClass}>
-            Puntos de operaciÃ³n con ubicaciÃ³n administrativa (paÃ­s, departamento, provincia y distrito).
+            Puntos de operación con ubicación administrativa (país, departamento, provincia y distrito).
           </p>
         </div>
         <RoleGuard allowedRoles={['Admin']}>
@@ -223,7 +223,7 @@ function Branches() {
         id="branch-search"
         label="Buscar sucursal"
         value={search}
-        placeholder="Nombre, telÃ©fono, direcciÃ³n, distrito..."
+        placeholder="Nombre, teléfono, dirección, distrito..."
         onChange={handleSearchChange}
       />
 
@@ -236,7 +236,7 @@ function Branches() {
           <div className={emptyBoxClass}>
             <p>
               {isSearching
-                ? 'No hay sucursales que coincidan con la bÃºsqueda.'
+                ? 'No hay sucursales que coincidan con la búsqueda.'
                 : 'No hay sucursales registradas.'}
             </p>
           </div>
@@ -248,9 +248,9 @@ function Branches() {
             <table className="min-w-full border-2 border-on-surface">
               <thead className="bg-surface-container-low">
                 <tr>
-                  <th className={thClass}>TelÃ©fono</th>
+                  <th className={thClass}>Teléfono</th>
                   <th className={thClass}>Nombre</th>
-                  <th className={thClass}>UbicaciÃ³n</th>
+                  <th className={thClass}>Ubicación</th>
                   <th className={thClass}>Horario</th>
                   <th className={thClass}>Estado</th>
                   <RoleGuard allowedRoles={['Admin']}>
@@ -372,8 +372,8 @@ function Branches() {
           title={statusActivating ? 'Reactivar sucursal' : 'Desactivar sucursal'}
           description={
             statusActivating
-              ? `Â¿Deseas reactivar ${statusBranch?.name ?? 'esta sucursal'}? VolverÃ¡ a estar disponible para operaciones.`
-              : `Â¿Deseas desactivar ${statusBranch?.name ?? 'esta sucursal'} (${statusBranch?.phone ?? ''})? No aparecerÃ¡ en asignaciones nuevas.`
+              ? `¿Deseas reactivar ${statusBranch?.name ?? 'esta sucursal'}? Volverá a estar disponible para operaciones.`
+              : `¿Deseas desactivar ${statusBranch?.name ?? 'esta sucursal'} (${statusBranch?.phone ?? ''})? No aparecerá en asignaciones nuevas.`
           }
           confirmLabel={statusActivating ? 'Reactivar' : 'Desactivar'}
           onOpenChange={(open) => {

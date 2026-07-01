@@ -1,4 +1,4 @@
-﻿import {
+import {
   useCallback,
   useDeferredValue,
   useEffect,
@@ -40,7 +40,7 @@ type PaymentFilter = 'ALL' | PaymentMethod;
 type PaidFilter = 'UNPAID' | 'PAID' | 'ALL';
 
 const PAYMENT_OPTIONS: { value: PaymentFilter; label: string }[] = [
-  { value: 'ALL', label: 'Todos los mÃ©todos' },
+  { value: 'ALL', label: 'Todos los métodos' },
   { value: 'PrePaid', label: PAYMENT_METHOD_LABEL.PrePaid },
   { value: 'CashOnDelivery', label: PAYMENT_METHOD_LABEL.CashOnDelivery },
 ];
@@ -173,7 +173,7 @@ function CashRegister() {
           <h1 className={pageTitleClass}>Caja</h1>
         </div>
         <p className={pageSubtitleClass}>
-          Control de cobros, pagos pendientes e ingresos por envÃ­o.
+          Control de cobros, pagos pendientes e ingresos por envío.
         </p>
       </header>
 
@@ -226,7 +226,7 @@ function CashRegister() {
       <div className="bento-cell grid gap-4 sm:grid-cols-2">
         <div>
           <label htmlFor="cash-payment-filter" className={labelClass}>
-            MÃ©todo de pago
+            Método de pago
           </label>
           <select
             id="cash-payment-filter"
@@ -285,7 +285,7 @@ function CashRegister() {
                 <tr>
                   <th className={thClass}>Tracking</th>
                   <th className={thClass}>Cliente</th>
-                  <th className={thClass}>MÃ©todo</th>
+                  <th className={thClass}>Método</th>
                   <th className={thClass}>Monto</th>
                   <th className={thClass}>Estado pedido</th>
                   <th className={thClass}>Cobro</th>
@@ -327,7 +327,7 @@ function CashRegister() {
                         <Link
                           to={`/shipments/${shipment.id}`}
                           className={actionButtonClass}
-                          title="Ver envÃ­o"
+                          title="Ver envío"
                         >
                           <Eye className="h-4 w-4" aria-hidden="true" />
                         </Link>

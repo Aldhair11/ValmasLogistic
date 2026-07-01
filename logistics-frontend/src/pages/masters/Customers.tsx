@@ -1,4 +1,4 @@
-﻿import {
+import {
   useCallback,
   useDeferredValue,
   useEffect,
@@ -162,7 +162,7 @@ function Customers() {
             <h1 className={pageTitleClass}>Clientes</h1>
           </div>
           <p className={pageSubtitleClass}>
-            Administra remitentes y destinatarios del sistema. El DNI debe ser ├║nico.
+            Administra remitentes y destinatarios del sistema. El DNI debe ser único.
           </p>
         </div>
         {canCreate ? (
@@ -213,7 +213,7 @@ function Customers() {
               </div>
               <div>
                 <label htmlFor="customer-email" className={labelClass}>
-                  Correo electr├│nico
+                  Correo electrónico
                 </label>
                 <input
                   id="customer-email"
@@ -227,7 +227,7 @@ function Customers() {
               </div>
               <div>
                 <label htmlFor="customer-phone" className={labelClass}>
-                  Tel├®fono
+                  Teléfono
                 </label>
                 <input
                   id="customer-phone"
@@ -279,7 +279,7 @@ function Customers() {
           <div className={emptyBoxClass}>
             <p>
               {isSearching
-                ? 'No hay clientes que coincidan con la b├║squeda.'
+                ? 'No hay clientes que coincidan con la búsqueda.'
                 : 'No hay clientes registrados.'}
             </p>
           </div>
@@ -294,7 +294,7 @@ function Customers() {
                   <th className={thClass}>DNI</th>
                   <th className={thClass}>Nombre</th>
                   <th className={thClass}>Email</th>
-                  <th className={thClass}>Tel├®fono</th>
+                  <th className={thClass}>Teléfono</th>
                   <th className={thClass}>Estado</th>
                   {canEdit ? (
                     <th className={`${thClass} text-right`}>Acciones</th>
@@ -406,8 +406,8 @@ function Customers() {
           title={statusActivating ? 'Reactivar cliente' : 'Desactivar cliente'}
           description={
             statusActivating
-              ? `┬┐Deseas reactivar a ${statusCustomer?.fullName ?? 'este cliente'}? Volver├í a estar disponible en el cat├ílogo.`
-              : `┬┐Deseas desactivar a ${statusCustomer?.fullName ?? 'este cliente'} (DNI ${statusCustomer?.dni ?? ''})? El registro se conservar├í pero no aparecer├í en b├║squedas operativas.`
+              ? `¿Deseas reactivar a ${statusCustomer?.fullName ?? 'este cliente'}? Volverá a estar disponible en el catálogo.`
+              : `¿Deseas desactivar a ${statusCustomer?.fullName ?? 'este cliente'} (DNI ${statusCustomer?.dni ?? ''})? El registro se conservará pero no aparecerá en búsquedas operativas.`
           }
           confirmLabel={statusActivating ? 'Reactivar' : 'Desactivar'}
           onOpenChange={(open) => {

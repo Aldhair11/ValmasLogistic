@@ -1,4 +1,4 @@
-﻿import { useEffect, useState, type FormEvent } from 'react';
+import { useEffect, useState, type FormEvent } from 'react';
 import * as Dialog from '@radix-ui/react-dialog';
 import { UserPlus, X } from 'lucide-react';
 import { CustomerService } from '../services/masters';
@@ -91,7 +91,7 @@ function CustomerRegistrationModal({
                   Registrar cliente
                 </Dialog.Title>
                 <Dialog.Description className="mt-0.5 text-xs font-bold uppercase tracking-wide text-on-surface-muted">
-                  Alta r├ípida sin salir del formulario de env├¡o
+                  Alta rápida sin salir del formulario de envío
                 </Dialog.Description>
               </div>
             </div>
@@ -116,7 +116,7 @@ function CustomerRegistrationModal({
                 (DNI {lastCreated.dni}) fue registrado correctamente.
               </p>
               <p className="text-xs font-bold uppercase tracking-wide text-on-surface-muted">
-                Asigna el rol en este env├¡o o registra otro participante.
+                Asigna el rol en este envío o registra otro participante.
               </p>
               <div className="flex flex-col gap-2 sm:flex-row sm:flex-wrap">
                 <button
@@ -184,7 +184,7 @@ function CustomerRegistrationModal({
                 </div>
                 <div>
                   <label htmlFor="modal-customer-email" className="brutalist-label">
-                    Correo electr├│nico
+                    Correo electrónico
                   </label>
                   <input
                     id="modal-customer-email"
@@ -198,7 +198,7 @@ function CustomerRegistrationModal({
                 </div>
                 <div>
                   <label htmlFor="modal-customer-phone" className="brutalist-label">
-                    Tel├®fono
+                    Teléfono
                   </label>
                   <input
                     id="modal-customer-phone"

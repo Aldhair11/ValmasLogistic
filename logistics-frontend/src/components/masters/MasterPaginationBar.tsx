@@ -1,4 +1,4 @@
-﻿import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { MASTER_PAGE_SIZE_OPTIONS } from '../../constants/masters';
 
 export interface MasterPaginationBarProps {
@@ -39,12 +39,12 @@ function MasterPaginationBar({
           ) : (
             <>
               Mostrando{' '}
-              <span className="font-extrabold tabular-nums text-on-surface">{rangeFrom}</span>ÔÇô
+              <span className="font-extrabold tabular-nums text-on-surface">{rangeFrom}</span>–
               <span className="font-extrabold tabular-nums text-on-surface">{rangeTo}</span> de{' '}
               <span className="font-extrabold tabular-nums text-on-surface">{totalCount}</span>
               {totalPages > 1 && (
                 <span className="ml-1 text-on-surface-muted">
-                  (p├ígina {page} de {totalPages})
+                  (página {page} de {totalPages})
                 </span>
               )}
             </>
@@ -55,7 +55,7 @@ function MasterPaginationBar({
             htmlFor="master-page-size"
             className="shrink-0 text-xs font-bold uppercase tracking-wide text-on-surface-muted"
           >
-            Por p├ígina
+            Por página
           </label>
           <select
             id="master-page-size"
