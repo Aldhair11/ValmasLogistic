@@ -45,6 +45,10 @@ function Layout() {
             <LayoutDashboard className="h-4 w-4 shrink-0" aria-hidden="true" />
             {isClient ? 'Mis Envíos' : 'Dashboard'}
           </NavLink>
+          <NavLink to="/shipments/new" className={({ isActive }) => sidebarLinkClass(isActive)}>
+            <PackagePlus className="h-4 w-4 shrink-0" aria-hidden="true" />
+            {isClient ? 'Programar Recojo' : 'Nuevo Envío'}
+          </NavLink>
         </nav>
         <div className="shrink-0 border-t-2 border-on-surface p-3">
           <button

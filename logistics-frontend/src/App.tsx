@@ -4,6 +4,8 @@ import { AuthProvider } from './context/AuthContext';
 import Layout from './components/Layout';
 import ProtectedRoute from './components/ProtectedRoute';
 import Home from './pages/Home';
+import CreateShipment from './pages/CreateShipment';
+import ShipmentDetail from './pages/ShipmentDetail';
 import TrackShipment from './pages/TrackShipment';
 import Login from './pages/Login';
 import Register from './pages/Register';
@@ -22,6 +24,8 @@ function App() {
           <Route element={<ProtectedRoute />}>
             <Route element={<Layout />}>
               <Route path="dashboard" element={<Home />} />
+              <Route path="shipments/new" element={<CreateShipment />} />
+              <Route path="shipments/:id" element={<ShipmentDetail />} />
             </Route>
           </Route>
         </Routes>
