@@ -1,6 +1,6 @@
 import { useEffect, useState, type FormEvent } from 'react';
 import * as Dialog from '@radix-ui/react-dialog';
-import { Pencil, X } from 'lucide-react';
+import { X } from 'lucide-react';
 import { VehicleService } from '../services/masters';
 import type { CreateVehicleRequest, VehicleDto } from '../types/masters';
 
