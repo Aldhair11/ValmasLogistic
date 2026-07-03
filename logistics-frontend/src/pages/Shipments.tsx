@@ -8,6 +8,7 @@
 import { Link } from 'react-router-dom';
 import { Eye, Package } from 'lucide-react';
 import MasterPaginationBar from '../components/masters/MasterPaginationBar';
+import MasterSearchPanel from '../components/masters/MasterSearchPanel';
 import StatusBadge from '../components/StatusBadge';
 import RoleGuard from '../components/RoleGuard';
 import { MASTER_DEFAULT_PAGE_SIZE } from '../constants/masters';
@@ -97,6 +98,8 @@ function Shipments() {
   const [fetching, setFetching] = useState(false);
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(MASTER_DEFAULT_PAGE_SIZE);
+  const [search, setSearch] = useState('');
+  const deferredSearch = useDeferredValue(search);
   const [statusFilter, setStatusFilter] = useState<StatusFilter>('ALL');
   const [paymentFilter, setPaymentFilter] = useState<PaymentFilter>('ALL');
   const [paidFilter, setPaidFilter] = useState<PaidFilter>('ALL');
@@ -108,7 +111,7 @@ function Shipments() {
         buildQueryParams(
           page,
           pageSize,
-          '',
+          deferredSearch,
           statusFilter,
           paymentFilter,
           paidFilter,
@@ -122,7 +125,7 @@ function Shipments() {
       setFetching(false);
       setInitialLoading(false);
     }
-  }, [page, pageSize, '', statusFilter, paymentFilter, paidFilter]);
+  }, [page, pageSize, deferredSearch, statusFilter, paymentFilter, paidFilter]);
 
   useEffect(() => {
     void loadShipments();
@@ -138,7 +141,7 @@ function Shipments() {
   const hasNext = page < totalPages;
   const rangeFrom = totalCount === 0 ? 0 : (page - 1) * pageSize + 1;
   const rangeTo = Math.min(page * pageSize, totalCount);
-  const isSearching = ''.trim().length > 0;
+  const isSearching = deferredSearch.trim().length > 0;
 
   return (
     <div className="space-y-6">
@@ -234,7 +237,7 @@ function Shipments() {
         ) : shipments.length === 0 ? (
           <div className={emptyBoxClass}>
             <p>
-              {statusFilter !== 'ALL' || paymentFilter !== 'ALL' || paidFilter !== 'ALL'
+              {isSearching || statusFilter !== 'ALL' || paymentFilter !== 'ALL' || paidFilter !== 'ALL'
                 ? 'No hay envÃ­os que coincidan con los filtros.'
                 : 'No hay envÃ­os registrados.'}
             </p>
