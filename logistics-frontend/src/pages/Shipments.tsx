@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom';
 import { Eye, Package } from 'lucide-react';
 import MasterPaginationBar from '../components/masters/MasterPaginationBar';
 import MasterSearchPanel from '../components/masters/MasterSearchPanel';
+import PaymentStatusBadge from '../components/PaymentStatusBadge';
 import StatusBadge from '../components/StatusBadge';
 import RoleGuard from '../components/RoleGuard';
 import { MASTER_DEFAULT_PAGE_SIZE } from '../constants/masters';
@@ -282,7 +283,12 @@ function Shipments() {
                     <td className={`${tdClass} font-mono`}>
                       {formatCurrency(shipment.shippingAmount)}
                     </td>
-                    <td className={tdClass}>{shipment.isPaid ? 'Pagado' : 'Pendiente'}</td>
+                    <td className={tdClass}>
+                      <PaymentStatusBadge
+                        isPaid={shipment.isPaid}
+                        paymentMethod={shipment.paymentMethod}
+                      />
+                    </td>
                     <td className={tdClass}>
                       <StatusBadge status={shipment.status} />
                     </td>
