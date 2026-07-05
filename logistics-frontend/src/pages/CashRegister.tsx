@@ -91,6 +91,7 @@ function CashRegister() {
   const [paged, setPaged] = useState<PagedResult<ShipmentDto> | null>(null);
   const [initialLoading, setInitialLoading] = useState(true);
   const [fetching, setFetching] = useState(false);
+  const [collectingId, setCollectingId] = useState<string | null>(null);
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(MASTER_DEFAULT_PAGE_SIZE);
   const [search, setSearch] = useState('');
@@ -141,6 +142,17 @@ function CashRegister() {
   useEffect(() => {
     void loadPayments();
   }, [loadPayments]);
+
+  const handleCollect = async (shipment: ShipmentDto) => {
+    setCollectingId(shipment.id);
+    try {
+      await ShipmentService.collectPayment(shipment.id);
+      await Promise.all([loadPayments(), loadSummary()]);
+    } catch {
+    } finally {
+      setCollectingId(null);
+    }
+  };
 
   const shipments = paged?.items ?? [];
   const totalCount = paged?.totalCount ?? 0;
@@ -302,6 +314,16 @@ function CashRegister() {
                     </td>
                     <td className={`${tdClass} text-right`}>
                       <div className="inline-flex items-center gap-2">
+                        {!shipment.isPaid && shipment.status !== 'Cancelled' ? (
+                          <button
+                            type="button"
+                            disabled={collectingId === shipment.id}
+                            onClick={() => void handleCollect(shipment)}
+                            className={primaryButtonClass}
+                          >
+                            {collectingId === shipment.id ? 'Registrando...' : 'Registrar cobro'}
+                          </button>
+                        ) : null}
                         <Link
                           to={`/shipments/${shipment.id}`}
                           className={actionButtonClass}
